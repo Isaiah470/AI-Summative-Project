@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reminder Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="#" onclick="showSection('schedule')">Schedule</a>
+        <a href="#" onclick="showSection('todo')">To Do List</a>
+        <a href="#" onclick="showSection('settings')">Settings</a>
+    </div>
+
+    <!-- Content Container -->
+    <div class="container">
+
+        <!-- Schedule Section -->
+        <div id="schedule" class="section active">
+            <h1>Schedule</h1>
+            <label for="daySelector">Select Day:</label>
+            <select id="daySelector">
+                <option value="Day 1">Day 1</option>
+                <option value="Day 2">Day 2</option>
+                <option value="Free Day">Free Day</option>
+            </select>
+
+            
+            <div class="schedule-grid" id="scheduleGrid">
+                <!-- Schedule grid dynamically generated -->
+            </div>
+        </div>
+
+        <!-- To Do List Section -->
+        <div id="todo" class="section">
+            <h1>To Do List</h1>
+
+            <h3> Current Time: <span id = "currentTime"> HH:MM:SS </span> </h3>
+            <div class="form-group">
+                <label for="taskName">Task Name</label>
+                <input type="text" id="taskName" placeholder="Enter task name">
+            </div>
+            <div class="form-group">
+                <label for="taskTime">Estimated Completion Time (in minutes)</label>
+                <input type="number" id="taskTime" placeholder="Enter estimated completion time">
+            </div>
+            <div class="form-group">
+                <label for="taskDeadline">Deadline</label>
+                <input type="datetime-local" id="taskDeadline">
+            </div>
+            <div class="form-group">
+                <button onclick="addTask()">Add Task</button>
+            </div>
+            <div class="todo-list" id="todoList">
+                <!-- Tasks will appear here -->
+            </div>
+        </div>
+
+        <!-- Settings Section -->
+        <div id="settings" class="section">
+            <h1>Settings</h1>
+            <div class="settings-option">
+                <h3> Notification Settings</h3>
+                <input type="checkbox" id="desktopNotifications" onclick="handleNotificationPermission()">
+                <label for="desktopNotifications">Enable Desktop Notifications</label>
+
+                <!-- Attempting to these buttons myself <!-->
+                <div class = "breakButtons"> 
+                    <h3> Taking Break</h3>
+                    <button onClick = "takeBreak(5);"> 5 Min Break </button><button onClick = "takeBreak(15);"> 15 Min Break </button> <button onClick = "takeBreak(30);"> 30 Min Break </button> 
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
